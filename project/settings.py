@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-zaczoip=vbx33k2s*gb=*44k$!e===14^f*le9*-l)3p6ght%)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
