@@ -11,7 +11,7 @@
             {% if article.photo1 %}
             <img src="{{ article.photo1.url }}" class="card-img-top card-img-card" alt="...">
             {% else %}
-            <img src="{% static 'blog/img/ddd.png' %}" class="card-img-top card-img-card" alt="article.title" width="100%">
+            <img src="{% static 'img/ddd.png' %}" class="card-img-top card-img-card" alt="article.title" width="100%">
             {% endif %}
         </div>
         <a href="{{ article.get_absolute_url }}" class="btn btn-primary">Подробное</a>
