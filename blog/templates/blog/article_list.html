@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load blog_tags %}
+
+{% block main %}
+
+<div class="container">
+    <br>
+    <h1><strong>G'ildirak.uz</strong></h1>
+    <br>
+    {% include 'blog/components/_sidebar.html' %}
+
+    <div class="card-wrap" style="display: flex; flex-wrap: wrap; margin: 0 auto;">
+        {% for article in articles %}
+        {% include 'blog/components/_card.html' %}
+        {% endfor %}
+    </div>
+    <br>
+    {% include 'components/_pagination.html' %}
+</div>
+
+{% endblock main %}
+
+

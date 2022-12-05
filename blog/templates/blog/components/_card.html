@@ -1,0 +1,24 @@
+{% load static %}
+<div class="card card-global text-center" style="width: 400px; display: flex; margin: 10px auto; box-shadow: hsl(0deg 0% 80%) 0 0 26px; border: none !important;">
+    <div class="card-header text-muted">
+        <p> Категория: {{ article.category.title }} </p>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"><small class="text-muted">Название авто: </small>{{ article.title }}</h5>
+        <h5 class="card-title"><small class="text-muted">Цена: </small>{{ article.price }}$</h5>
+<!--        <p class="card-text">Ma'lumot: {{ article.content | linebreaks | truncatechars:150 }}</p>-->
+        <div class="img-card" style="width: 300px; height: 200px; display: flex; margin: 0 auto; margin-bottom: 20px;">
+            {% if article.photo1 %}
+            <img src="{{ article.photo1.url }}" class="card-img-top card-img-card" alt="...">
+            {% else %}
+            <img src="{% static 'blog/img/ddd.png' %}" class="card-img-top card-img-card" alt="article.title" width="100%">
+            {% endif %}
+        </div>
+        <a href="{{ article.get_absolute_url }}" class="btn btn-primary">Подробное</a>
+    </div>
+    <div class="card-footer text-muted">
+        <p class="card-text"><small class="text-muted">Автор: {{ article.author.username }}</small></p>
+        <p>Дата создание: {{ article.created_at }} </p>
+    </div>
+</div>
+

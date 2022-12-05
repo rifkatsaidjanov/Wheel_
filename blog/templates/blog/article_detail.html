@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block main %}
+
+<div class="container">
+    <div class="block-photo">
+
+        <p class="imglist"
+           style="max-width: 1000px; display: flex; flex-wrap: wrap; justify-content: center; margin: 0 auto;">
+            <a href="{% if article.photo1 %} {{ article.photo1.url }} {% else %} {% static 'blog/img/ddd.png' %} {% endif %}"
+               data-fancybox="images" data-caption="Avto">
+                <img src="{% if article.photo1 %} {{ article.photo1.url }} {% else %} {% static 'blog/img/ddd.png' %} {% endif %}"
+                     class="card-img-top" alt="..." style="width: 200px; height: 100px; margin: 5px;">
+            </a>
+
+            <a href="{% if article.photo2 %} {{ article.photo2.url }} {% else %} {% static 'blog/img/ddd.png' %} {% endif %}"
+               data-fancybox="images" data-caption="Avto">
+                <img src="{% if article.photo2 %} {{ article.photo2.url }} {% else %} {% static 'blog/img/ddd.png' %} {% endif %}"
+                     class="card-img-top" alt="..." style="width: 200px; height: 100px; margin: 5px;">
+            </a>
+
+            <a href="{% if article.photo3 %} {{ article.photo3.url }} {% else %} {% static 'blog/img/ddd.png' %} {% endif %}"
+               data-fancybox="images" data-caption="Avto">
+                <img src="{% if article.photo3 %} {{ article.photo3.url }} {% else %} {% static 'blog/img/ddd.png' %} {% endif %}"
+                     class="card-img-top" alt="..." style="width: 200px; height: 100px; margin: 5px;">
+            </a>
+
+            <a href="{% if article.photo4 %} {{ article.photo4.url }} {% else %} {% static 'blog/img/ddd.png' %} {% endif %}"
+               data-fancybox="images" data-caption="Avto">
+                <img src="{% if article.photo4 %} {{ article.photo4.url }} {% else %} {% static 'blog/img/ddd.png' %} {% endif %}"
+                     class="card-img-top" alt="..." style="width: 200px; height: 100px; margin: 5px;">
+            </a>
+
+            <a href="{% if article.photo5 %} {{ article.photo5.url }} {% else %} {% static 'blog/img/ddd.png' %} {% endif %}"
+               data-fancybox="images" data-caption="Avto">
+                <img src="{% if article.photo5 %} {{ article.photo5.url }} {% else %} {% static 'blog/img/ddd.png' %} {% endif %}"
+                     class="card-img-top" alt="..." style="width: 200px; height: 100px; margin: 5px;">
+            </a>
+        </p>
+
+    </div>
+
+
+    <div class="card-article-detail mt-3" style="border: 1px solid black; padding: 40px; margin-bottom: 50px; background-color: #d1d0d0;">
+        <p style=""><small class="text-muted ">Категория: </small>{{ article.category.title }} </p>
+        <h3 style=""><small class="text-muted">Название авто: </small>{{ article.title }}</h3>
+        <h3 style=""><small class="text-muted">Год: </small>{{ article.year }}</h3>
+        <h3 style=""><small class="text-muted">Цвет: </small>{{ article.color }}</h3>
+        <h3 style=""><small class="text-muted">Цена: </small>{{ article.price }}$</h3>
+        <h3 style=""><small class="text-muted">Коробка передач: </small>{{ article.transmitter }}</h3>
+        <h3 style=""><small class="text-muted">Вид топлива: </small>{{ article.fuel_type }}</h3>
+        <h3 style=""><small class="text-muted">Пробег: </small>{{ article.kilometers }}km</h3>
+        <h3 style=""><small class="text-muted">Объем двигателя: </small>{{ article.engine_capacity }}</h3>
+        <h3 style=""><small class="text-muted">Номер телефона: </small>{{ article.phone }}</h3>
+        <h5 style="border: 1px solid black; padding: 10px; background-color: white;"><small class="text-muted">Описание: </small>{{ article.content | linebreaks }}</h5>
+        <p style=""> Дата создание: {{ article.created_at }} </p>
+        <p class="card-text"><small class="text-muted">Автор: {{ article.author.username }}</small></p>
+        <a href="{% url 'index' %}" class="btn button-back btn-primary">Главная страница</a>
+
+        {% if request.user == article.author %}
+        <a href="{% url 'article_update' article.pk %}" class="btn button-back btn-success">Изменить</a>
+        <a href="{% url 'article_delete' article.pk %}" class="btn button-back btn-danger">Удалить</a>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock main %}

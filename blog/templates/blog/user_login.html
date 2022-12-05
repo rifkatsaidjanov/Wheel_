@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{title}}
+{% endblock title %}
+
+
+{% block main %}
+
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        {% include 'components/_form_errors.html' %}
+        {{ form.as_p }}
+        <button class="btn btn-primary">Войти</button>
+    </form>
+</div>
+
+{% endblock main %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{title}}
+{% endblock title %}
+
+
+{% block main %}
+
+<div class="container">
+    <form action="{% if 'new' in request.path %}{% url 'add_article' %}{% endif %}" method="post"
+          enctype="multipart/form-data"
+          style="border: 1px solid black; padding: 20px;">
+        {% csrf_token %}
+
+        {% include 'components/_form_errors.html' %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-secondary">
+            {% if 'update' in request.path %}
+            Изменить
+            {% else %}
+            Добавить статью
+            {% endif %}
+        </button>
+
+
+
+    </form>
+</div>
+{% endblock main %}
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+{% load blog_tags %}
+
+
+<ul class="d-md-flex">
+     <li class="list-group-item" style="margin-right: 10px">
+         <a class="sidebar-link" href="{% url 'index' %}">Все</a> /
+   </li>
+
+    {% get_all_categories as categories %}
+    {% for category in categories %}
+    <li class="list-group-item" style="margin-right: 10px">
+        <a href="{{ category.get_absolute_url }}" class="sidebar-link">
+            {{ category.title }} <span class="badge bg-primary rounded-pill">{{ category.article__count }}</span></a> /
+    </li>
+    {% endfor %}
+</ul>
+<br>
+<hr>
+<br>
