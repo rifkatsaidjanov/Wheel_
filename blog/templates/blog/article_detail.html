@@ -55,7 +55,8 @@
         <h3 style=""><small class="text-muted">Вид топлива: </small>{{ article.fuel_type }}</h3>
         <h3 style=""><small class="text-muted">Пробег: </small>{{ article.kilometers }}km</h3>
         <h3 style=""><small class="text-muted">Объем двигателя: </small>{{ article.engine_capacity }}</h3>
-        <h3 style=""><small class="text-muted">Номер телефона: </small>{{ article.phone }}</h3>
+        <h3 style=""><small class="text-muted">Номер телефона: </small><a href="tel:{{ article.phone }}">{{ article.phone }}</a>
+                    </h3>
         <h5 style="border: 1px solid black; padding: 10px; background-color: white;"><small class="text-muted">Описание: </small>{{ article.content | linebreaks }}</h5>
         <p style=""> Дата создание: {{ article.created_at }} </p>
         <p class="card-text"><small class="text-muted">Автор: {{ article.author.username }}</small></p>
